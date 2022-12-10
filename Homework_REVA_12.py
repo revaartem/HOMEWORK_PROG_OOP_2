@@ -70,7 +70,7 @@ class StudentAddError(Exception):
         self.message = None
 
     def __str__(self):
-        return 'This student is already in this group!'
+        return 'This student is already in this group or reached max group size!'
 
 
 class StudentSearchError(Exception):
@@ -88,7 +88,7 @@ class Group:
         self.max_student = max_students
 
     def add_student(self, student_card: Student):
-        if student_card not in self.student_list:
+        if student_card not in self.student_list and len(self.student_list) < self.max_student:
             self.student_list.append(student_card)
             logger.info('Student has been successfully added to student_list')
         else:
