@@ -1,3 +1,20 @@
+import logging
+
+logger = logging.getLogger('log_of_students')
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+filehandler = logging.FileHandler('logger.log')
+filehandler.setLevel(logging.INFO)
+filehandler.setFormatter(formatter)
+logger.addHandler(filehandler)
+
+# logger.debug('debug message')
+# logger.info('info message')
+# logger.warning('warn message')
+# logger.error('error message')
+# logger.critical('critical message')
+
+
 
 class Human:
     def __init__(self, name: str, surname: str, age: int, nationality: str, sex: str):
@@ -48,29 +65,51 @@ student_9 = Student('Icey', 'Illecebra', 43, 'Egypt', 'Male', 'ME-21', 4, 'HEMC'
 student_10 = Student('Gordon', 'Ramsey', 51, 'American', 'Male', 'ME-21', 1, 'HEMC')
 
 
+class StudentAddError(Exception):
+    def __init__(self):
+        self.message = None
+
+    def __str__(self):
+        return 'This student is already in this group!'
+
+
+class StudentSearchError(Exception):
+    def __init__(self):
+        self.message = None
+
+    def __str__(self):
+        return 'This student is not in this group!'
+
+
 class Group:
-    def __init__(self, name_of_group: str):
-        self.name_of_groupe = name_of_group
+    def __init__(self, name_of_group: str, max_students=10):
+        self.name_of_group = name_of_group
         self.student_list = []
+        self.max_student = max_students
 
     def add_student(self, student_card: Student):
         if student_card not in self.student_list:
             self.student_list.append(student_card)
+            logger.info('Student has been successfully added to student_list')
         else:
-            print('This student is already in this group!')
+            logger.critical('Student add error')
+            raise StudentAddError
 
     def delete_student(self, student_card: Student):
         if student_card in self.student_list:
             self.student_list.remove(student_card)
+            logger.info('Student has been successfully removed from student_list')
         else:
-            print('This student is not in this group!')
+            logger.critical('Student search error')
+            raise StudentSearchError
 
     def student_search(self, name: str, surname: str, age: int):
         if not self.student_list:
-            print('Student group list is empty!')
-            return False
+            logger.critical('Empty student list error')
+            raise ValueError ('List is empty.')
         for student_card in self.student_list:
             if student_card.name == name and student_card.surname == surname and student_card.age == age:
+                logger.info(f'Searching for {student_card.name + " " + student_card.surname}')
                 return True
             else:
                 return False
@@ -93,5 +132,4 @@ group_1.add_student(student_10)
 print(group_1)
 
 print(group_1.student_search('Artem', 'Reva', 25))
-group_1.delete_student(student_1)
 print(group_1.student_search('Artem', 'Reva', 25))
