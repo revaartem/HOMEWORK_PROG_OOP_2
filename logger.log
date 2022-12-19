@@ -174,3 +174,15 @@
 2022-12-12 10:11:08,435 log_of_students CRITICAL Student add error
 student_card not in self.student_list - False
 len(self.student_list) < self.max_student - True
+2022-12-19 17:51:30,679 log_of_students INFO     Student Artem Reva has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Rustam Said has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student George Cool has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Patrik Stewart has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Chester Bennington has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Mike Shinoda has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Garet Simpson has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Cooler Wakanda has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Icey Illecebra has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Student Gordon Ramsey has been successfully added to student_list
+2022-12-19 17:51:30,705 log_of_students INFO     Searching for Artem Reva
+2022-12-19 17:51:30,705 log_of_students INFO     Searching for Artem Reva
