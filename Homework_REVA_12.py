@@ -28,3 +28,11 @@ if __name__ == "__main__":
 
     print(group_1.student_search('Artem', 'Reva', 25))
     print(group_1.student_search('Artem', 'Reva', 25))
+
+    print('#' * 100)
+
+    for item in group_1:
+        print(item)
+
+    for i in group_1[::-1]:
+        print(i)

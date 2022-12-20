@@ -7,14 +7,14 @@ class Student(Human_class.Human):
                  ):
         """
 
-        :param name:
-        :param surname:
-        :param age:
-        :param nationality:
-        :param sex:
-        :param group:
-        :param course:
-        :param name_of_college:
+        :param name: Name of Student
+        :param surname: Surname of Student
+        :param age: Age of Student
+        :param nationality: Nationality of Student
+        :param sex: Gender of Student
+        :param group: Group of Student
+        :param course: Course of Student
+        :param name_of_college: Student's name of college
         """
 
         super().__init__(name, surname, age, nationality, sex)
@@ -23,6 +23,11 @@ class Student(Human_class.Human):
         self.name_of_college = name_of_college
 
     def __str__(self):
+        """
+
+        :return: string vision of Student
+        """
+
         return f'''
 Full name - {self.name + ' ' + self.surname}
 Age - {self.age}
